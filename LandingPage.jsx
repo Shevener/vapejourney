@@ -1021,7 +1021,7 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           align-items: center;
           justify-content: center;
           gap: 20px;
-          width: min(520px, 100%);
+          width: min(660px, 100%);
         }
 
         .finish-button-row {
@@ -1039,7 +1039,7 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
         }
 
         .finish-game {
-          width: min(520px, 100%);
+          width: min(620px, 100%);
           aspect-ratio: 485 / 402;
           overflow: hidden;
           border: 1px solid rgba(96, 226, 255, 0.55);
@@ -1057,8 +1057,8 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
 
         .finish-rules {
           position: relative;
-          width: min(620px, 100%);
-          padding: 18px 58px 16px;
+          width: min(660px, 100%);
+          padding: 16px 28px 14px;
           overflow: hidden;
           border: 1px solid rgba(0, 229, 255, 0.55);
           border-left: 4px solid #ff3fb0;
@@ -1100,9 +1100,9 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           list-style: none;
           color: #d7e4ff;
           font-family: "Chakra Petch", sans-serif;
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 700;
-          line-height: 1.25;
+          line-height: 1.2;
         }
 
         .finish-rules-list li {
@@ -1457,7 +1457,7 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
 
           .finish-rules {
             width: min(100%, calc(100vw - 40px));
-            padding: 16px 24px 14px;
+            padding: 14px 18px 12px;
           }
         }
       `}</style>
