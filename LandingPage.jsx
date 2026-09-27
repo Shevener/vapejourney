@@ -1008,18 +1008,42 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
 
         .finish-actions {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 14px;
+          gap: 22px;
           margin-top: 36px;
         }
 
-        /* Buttons inside the row share .finish-button's look but the row
-           owns the spacing, so cancel the individual top margin. */
+        .finish-button-row {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          width: 100%;
+        }
+
         .finish-actions .finish-button {
           margin-top: 0;
           text-decoration: none;
+        }
+
+        .finish-game {
+          width: min(760px, 100%);
+          aspect-ratio: 485 / 402;
+          overflow: hidden;
+          border: 1px solid rgba(96, 226, 255, 0.55);
+          border-radius: 6px;
+          background: #000;
+          box-shadow: 0 0 24px rgba(0, 229, 255, 0.22);
+        }
+
+        .finish-game iframe {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: 0;
         }
 
         .finish-button-video {
@@ -1335,15 +1359,22 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           }
 
           .finish-actions {
-            flex-direction: column;
-            gap: 12px;
+            gap: 24px;
             margin-top: 28px;
+          }
+
+          .finish-button-row {
+            gap: 12px;
           }
 
           .finish-actions .finish-button {
             width: 100%;
             max-width: 280px;
             margin-top: 0;
+          }
+
+          .finish-game {
+            width: min(100%, calc(100vw - 40px));
           }
         }
       `}</style>
@@ -1562,30 +1593,36 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           </h2>
 
           <div className="finish-actions">
-            <a
-              href="https://youtu.be/273CDxUJdAA?si=Hv-uAf_T9lvYIjKc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="finish-button finish-button-video"
-            >
-              TONTON VIDEO
-            </a>
+            <div className="finish-game">
+              <iframe
+                src="https://scratch.mit.edu/projects/1385364593/embed"
+                title="Vape Journey main game"
+                allowTransparency="true"
+                width="485"
+                height="402"
+                frameBorder="0"
+                scrolling="no"
+                allowFullScreen
+              />
+            </div>
 
-            <button
-              type="button"
-              className="finish-button"
-            >
-              THANK YOU
-            </button>
+            <div className="finish-button-row">
+              <a
+                href="https://youtu.be/273CDxUJdAA?si=Hv-uAf_T9lvYIjKc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="finish-button finish-button-video"
+              >
+                TONTON VIDEO
+              </a>
 
-            <a
-              href="GANTI_DENGAN_LINK_SCRATCH"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="finish-button finish-button-game"
-            >
-              MAIN GAME
-            </a>
+              <button
+                type="button"
+                className="finish-button"
+              >
+                THANK YOU
+              </button>
+            </div>
           </div>
         </div>
       </section>
