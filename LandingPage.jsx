@@ -1015,6 +1015,15 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           margin-top: 36px;
         }
 
+        .finish-game-area {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          width: min(520px, 100%);
+        }
+
         .finish-button-row {
           display: flex;
           flex-direction: column;
@@ -1030,7 +1039,7 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
         }
 
         .finish-game {
-          width: min(760px, 100%);
+          width: min(520px, 100%);
           aspect-ratio: 485 / 402;
           overflow: hidden;
           border: 1px solid rgba(96, 226, 255, 0.55);
@@ -1044,6 +1053,71 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           width: 100%;
           height: 100%;
           border: 0;
+        }
+
+        .finish-rules {
+          position: relative;
+          width: min(620px, 100%);
+          padding: 18px 58px 16px;
+          overflow: hidden;
+          border: 1px solid rgba(0, 229, 255, 0.55);
+          border-left: 4px solid #ff3fb0;
+          border-radius: 10px;
+          background: linear-gradient(145deg, rgba(23, 57, 117, 0.96), rgba(7, 25, 65, 0.98));
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 229, 255, 0.14), inset 0 0 20px rgba(255, 63, 176, 0.08);
+          text-align: left;
+        }
+
+        .finish-rules::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(135deg, rgba(255, 63, 176, 0.12), transparent 48%, rgba(0, 229, 255, 0.08));
+        }
+
+        .finish-rules-label,
+        .finish-rules-list {
+          position: relative;
+          z-index: 1;
+        }
+
+        .finish-rules-label {
+          display: block;
+          margin-bottom: 12px;
+          color: #00e5ff;
+          font-family: "Press Start 2P", monospace;
+          font-size: 11px;
+          letter-spacing: 1px;
+          text-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
+        }
+
+        .finish-rules-list {
+          display: grid;
+          gap: 9px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          color: #d7e4ff;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+
+        .finish-rules-list li {
+          position: relative;
+          padding-left: 20px;
+        }
+
+        .finish-rules-list li::before {
+          content: "◆";
+          position: absolute;
+          left: 0;
+          top: 1px;
+          color: #ff3fb0;
+          font-size: 11px;
+          text-shadow: 0 0 10px rgba(255, 63, 176, 0.7);
         }
 
         .finish-button-video {
@@ -1363,6 +1437,10 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
             margin-top: 28px;
           }
 
+          .finish-game-area {
+            width: 100%;
+          }
+
           .finish-button-row {
             gap: 12px;
           }
@@ -1375,6 +1453,11 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
 
           .finish-game {
             width: min(100%, calc(100vw - 40px));
+          }
+
+          .finish-rules {
+            width: min(100%, calc(100vw - 40px));
+            padding: 16px 24px 14px;
           }
         }
       `}</style>
@@ -1593,17 +1676,29 @@ export default function VapeJourneyLanding({ onStartLevel, scrollToLevel = null 
           </h2>
 
           <div className="finish-actions">
-            <div className="finish-game">
-              <iframe
-                src="https://scratch.mit.edu/projects/1385364593/embed"
-                title="Vape Journey main game"
-                allowTransparency="true"
-                width="485"
-                height="402"
-                frameBorder="0"
-                scrolling="no"
-                allowFullScreen
-              />
+            <div className="finish-game-area">
+              <aside className="finish-rules" aria-label="Petunjuk permainan">
+                <span className="finish-rules-label">INSTRUCTIONS</span>
+                <ul className="finish-rules-list">
+                  <li>Pilih jawaban yang benar dari pertanyaan yang tersedia.</li>
+                  <li>Loncat untuk memilih jawaban benar dengan tombol Spasi (Space Bar).</li>
+                  <li>Skor akhir akan ditampilkan setelah kuis selesai.</li>
+                  <li>3 nyawa diberikan untuk setiap pemain.</li>
+                </ul>
+              </aside>
+
+              <div className="finish-game">
+                <iframe
+                  src="https://scratch.mit.edu/projects/1385364593/embed"
+                  title="Vape Journey main game"
+                  allowTransparency="true"
+                  width="485"
+                  height="402"
+                  frameBorder="0"
+                  scrolling="no"
+                  allowFullScreen
+                />
+              </div>
             </div>
 
             <div className="finish-button-row">
